@@ -11,3 +11,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        java-version: [ 11 ]
+        include:
+          - java-version: 11
+            jdk: oraclejdk11
+          - java-version: 11
+            jdk: openjdk11
