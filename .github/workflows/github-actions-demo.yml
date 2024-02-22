@@ -36,3 +36,6 @@ jobs:
 
       - name: Build and test
         run: mvn clean package -DskipTests=false
+
+      - name: Uploading code coverage data to the Codecov service
+        run: bash <(curl -s https://codecov.io/bash)
