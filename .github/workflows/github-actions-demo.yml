@@ -27,3 +27,6 @@ jobs:
         with:
           java-version: ${{ matrix.java-version }}
           distribution: 'adopt'
+
+      - name: Checkout code
+        uses: actions/checkout@v2
