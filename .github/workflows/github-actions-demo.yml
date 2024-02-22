@@ -28,14 +28,14 @@ jobs:
           java-version: ${{ matrix.java-version }}
           distribution: 'adopt'
 
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Caching the packages of maven
         uses: actions/cache@v2
         with:
-            path: ~/.m2
-            key: ${{ runner.os }}-m2-${{ hashFile
-
-      - name: Checkout code
-        uses: actions/checkout@v2
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFile
 
       - name: Installing the dependencies
         run: mvn -q install -Dgpg.skip
