@@ -14,15 +14,16 @@ jobs:
         java-version: [11]
         include:
           - java-version: '11'
-            distribution: 'zulu'
             jdk: 'oraclejdk11'
+            distribution: 'adopt'
 
           - java-version: '11'
-            distribution: 'zulu'
             jdk: 'openjdk11'
+            distribution: 'adopt'
 
     steps:
       - name: Setting up JDK ${{ matrix.java-version }}
         uses: actions/setup-java@v2
         with:
           java-version: ${{ matrix.java-version }}
+          distribution: 'adopt'
