@@ -31,11 +31,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Caching the packages of maven
+      - name: Caching packages of Maven
         uses: actions/cache@v2
         with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFile
+            path: ~/.m2
+            key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+            restore-keys: ${{ runner.os }}-m2
 
       - name: Installing the dependencies
         run: mvn -q install -Dgpg.skip
