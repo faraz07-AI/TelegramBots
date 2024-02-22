@@ -33,3 +33,6 @@ jobs:
 
       - name: Installing the dependencies
         run: mvn -q install -Dgpg.skip
+
+      - name: Build and test
+        run: mvn clean package -DskipTests=false
