@@ -13,12 +13,12 @@ jobs:
       matrix:
         java-version: [11]
         include:
-          - java-version: 11
-            jdk: oraclejdk11
+          - java-version: '11'
+            jdk: 'oraclejdk11'
             distribution: 'adopt'
 
-          - java-version: 11
-            jdk: openjdk11
+          - java-version: '11'
+            jdk: 'openjdk11'
             distribution: 'adopt'
 
     steps:
