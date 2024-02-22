@@ -15,8 +15,12 @@ jobs:
         include:
           - java-version: 11
             jdk: oraclejdk11
+            architecture: 'x64'
+            distribution: 'adopt'
           - java-version: 11
             jdk: openjdk11
+            architecture: 'x64'
+            distribution: 'adopt'
 
     steps:
       - name: Setting up JDK ${{ matrix.java-version }}
