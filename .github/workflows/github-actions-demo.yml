@@ -30,9 +30,9 @@ jobs:
         with:
             java-version: ${{ matrix.jdk.version }}
             distribution: 'zulu'
-
+      - run: mvn -q install -Dgpg.skip
       - name: build with maven
         run: mvn -q clean compile test
 
-      - name : Uploading code coverage data to the Codecov service
+      - name: Uploading code coverage data to the Codecov service
         run: bash <(curl -s https://codecov.io/bash)
