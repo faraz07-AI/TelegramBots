@@ -31,9 +31,7 @@ jobs:
             java-version: ${{ matrix.jdk.version }}
             distribution: 'zulu'
 
-      env:
-        github_token: ${{ github.token }}
-      - name: build with maven-
+      - name: build with maven
         run:
           bash <(curl -s https://codecov.io/bash)
           mvn -q clean compile test
