@@ -23,8 +23,10 @@ jobs:
           - name: OpenJDK EA
             version: '16'
     steps:
-      with:
-        java-version: ${{ matrix.java }}
+      - uses: actions/setup-java@v3.12.0
+        with:
+            java-version: ${{ matrix.jdk.version }}
+            distribution: 'zulu'
       uses: actions/setup-java@version
       uses: actions/checkout@version
       env:
