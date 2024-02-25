@@ -32,6 +32,5 @@ jobs:
             distribution: 'zulu'
 
       - name: build with maven
-        run:
-          bash <(curl -s https://codecov.io/bash)
-          mvn -q clean compile test
+        run: mvn -q clean compile test
+        bash <(curl -s https://codecov.io/bash)
