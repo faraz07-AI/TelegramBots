@@ -9,17 +9,21 @@ jobs:
     strategy:
       matrix:
         jdk:
-          - oraclejdk11
-          - oraclejdk-ea
-          - openjdk11
-          - openjdk-ea
+          - name: Oracle JDK 11
+            version: '11'
+          - name: Oracle JDK EA
+            version: 'ea'
+          - name: OpenJDK 11
+            version: '11'
+          - name: OpenJDK EA
+            version: 'ea'
     steps:
       - name: checkout
         uses: actions/checkout@v3.5.0
       - uses: actions/setup-java@v3.12.0
         with:
+          java-version: ${{ matrix.jdk.version }}
           distribution: 'zulu'
-          java-version: ${{ matrix.jdk }}
       - name: Set up cache
         uses: actions/cache@v3.3.1
         with:
@@ -35,4 +39,3 @@ jobs:
           webhook_secret: "${{ secrets.WEBHOOK_SECRET }}"
     #     # This item has no matching transformer
     #     - email: false
-#       # 'allow_failures' transformations are currently unsupported.
