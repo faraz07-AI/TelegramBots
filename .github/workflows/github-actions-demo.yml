@@ -36,3 +36,9 @@ jobs:
 
       - name: Uploading code coverage data to the Codecov service
         run: bash <(curl -s https://codecov.io/bash)
+
+      - name: Set up cache
+        uses: actions/cache@v3.3.1
+        with:
+            path: "${{ github.workspace }}/.m2"
+            key: "${{ runner.os }}-path"
