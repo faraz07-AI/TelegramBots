@@ -33,4 +33,6 @@ jobs:
 
       - name: build with maven
         run: mvn -q clean compile test
-        bash <(curl -s https://codecov.io/bash)
+
+      - name : Uploading code coverage data to the Codecov service
+        run: bash <(curl -s https://codecov.io/bash)
