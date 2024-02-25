@@ -31,13 +31,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Caching packages of Maven
-        uses: actions/cache@v2
-        with:
-            path: ~/.m2
-            key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-            restore-keys: ${{ runner.os }}-m2
-
       - name: Installing the dependencies
         run: mvn -q install -Dgpg.skip
 
@@ -46,3 +39,10 @@ jobs:
 
       - name: Uploading code coverage data to the Codecov service
         run: bash <(curl -s https://codecov.io/bash)
+
+      - name: Caching packages of Maven
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
