@@ -6,13 +6,20 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        jdk:
+          - oraclejdk11
+          - oraclejdk-ea
+          - openjdk11
+          - openjdk-ea
     steps:
       - name: checkout
         uses: actions/checkout@v3.5.0
       - uses: actions/setup-java@v3.12.0
         with:
           distribution: 'zulu'
-          java-version: ''
+          java-version: ${{ matrix.jdk }}
       - name: Set up cache
         uses: actions/cache@v3.3.1
         with:
@@ -28,11 +35,4 @@ jobs:
           webhook_secret: "${{ secrets.WEBHOOK_SECRET }}"
     #     # This item has no matching transformer
     #     - email: false
-    strategy:
-      matrix:
-        jdk:
-          - oraclejdk11
-          - oraclejdk-ea
-          - openjdk11
-          - openjdk-ea
 #       # 'allow_failures' transformations are currently unsupported.
