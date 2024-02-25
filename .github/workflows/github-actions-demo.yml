@@ -12,11 +12,11 @@ jobs:
           - name: Oracle JDK 11
             version: '11'
           - name: Oracle JDK EA
-            version: 'ea'
+            version: '16'
           - name: OpenJDK 11
             version: '11'
           - name: OpenJDK EA
-            version: 'ea'
+            version: '16'
     steps:
       - name: checkout
         uses: actions/checkout@v3.5.0
