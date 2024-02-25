@@ -2,19 +2,26 @@ name: gha2-results
 
 on:
   pull_request:
-    branches: branch-name
+    branches:
+      - branch-2
   push:
     branches:
       - branch-2
 
 jobs:
   build:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        java:
-          19-ea
-          18-ea
-    runs-on: ubuntu-latest
+        jdk:
+          - name: Oracle JDK 11
+            version: '11'
+          - name: Oracle JDK EA
+            version: '16'
+          - name: OpenJDK 11
+            version: '11'
+          - name: OpenJDK EA
+            version: '16'
     steps:
       with:
         bundler-cache: TRUE
